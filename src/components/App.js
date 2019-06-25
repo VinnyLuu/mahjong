@@ -16,7 +16,7 @@ class App extends Component {
 
   handleDiscard = () => {
     this.props.dispatch(handleDraw(this.props.player1, 1))
-    console.log(this.props.player1)
+    console.log(this.props.player1.length)
   }
 
   componentDidMount() {
@@ -26,7 +26,7 @@ class App extends Component {
 
   render() {
     const { player1, player2, player3, player4 } = this.props
-    console.log(this.props)
+    console.log(player1.length)
       return (
       <div className="App">
           <div className='player1'>
@@ -49,7 +49,9 @@ class App extends Component {
 
 function mapStateToProps(props){
   const { player1, player2, player3, player4 } = props.hand
+  const { deck } = props
   return {
+    deck,
     player1,
     player2,
     player3,

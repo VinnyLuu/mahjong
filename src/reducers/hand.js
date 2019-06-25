@@ -16,6 +16,7 @@ export default function hand(state = setInitialState(), action) {
             return state
         case ADD_TO_HAND:
             const { player, tile , playerNum } = action
+            console.log(tile)
             player.push(tile)
             return {
                 ...state,
