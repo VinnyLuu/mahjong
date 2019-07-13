@@ -15,9 +15,7 @@ export default function hand(state = setInitialState(), action) {
         case DISCARD_FROM_HAND:
             return state
         case ADD_TO_HAND:
-            const { player, tile , playerNum } = action
-            console.log(tile)
-            player.push(tile)
+            const { player, playerNum } = action
             return {
                 ...state,
                 ['player' + playerNum]: player

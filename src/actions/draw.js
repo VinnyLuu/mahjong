@@ -8,10 +8,9 @@ function drawFromDeck(deck) {
     }
 }
 
-function addToHand(tile, player, playerNum) {
+function addToHand(player, playerNum) {
     return {
         type: ADD_TO_HAND,
-        tile,
         player,
         playerNum
     }
@@ -22,9 +21,11 @@ export function handleBatchDraw(player, playerNum) {
         const { deck } = getState().deck
         const newDeck = deck.slice(0, -13)
         const hand = deck.slice(-13)
+        const newHand = [...player]
         dispatch(drawFromDeck(newDeck))
         for (let i = 0; i < 13; i++) {
-            dispatch(addToHand(hand[i], player, playerNum))   
+            newHand.push(hand[i])
+            dispatch(addToHand(newHand, playerNum))   
         }
     }
 }
@@ -33,9 +34,12 @@ export function handleDraw(player, playerNum) {
     return (dispatch, getState) => {
         const { deck } = getState().deck
         const newDeck = deck.slice(0, -1)
-        const hand = deck.slice(-1)
+        const tile = deck.slice(-1)[0]
+        const newHand = [...player]
+        console.log(player);
+        newHand.push(tile)
         dispatch(drawFromDeck(newDeck))
-        dispatch(addToHand(hand[0], player, playerNum))   
+        dispatch(addToHand(newHand, playerNum))   
         
     }
 }
