@@ -23,8 +23,34 @@
   color: #61dafb;
 }
 
+body {
+  background-color: green;
+}
+
 .hand {
-  display: flex
+  position: fixed;
+}
+.player1 > .hand {
+  left: 20%;
+  right: 20%;
+  display: flex;
+}
+
+.player2 > .hand {
+  display: block;
+  left: 0;
+}
+
+.player3 > .hand {
+  display: block;
+  right: 0;
+}
+
+.player4 > .hand {
+  left: 20%;
+  right: 20%;
+  display: flex;
+  bottom: 0;
 }
 
 @keyframes App-logo-spin {

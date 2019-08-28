@@ -16,7 +16,7 @@ class App extends Component {
 
   handleDiscard = () => {
     this.props.dispatch(handleDraw(this.props.player1, 1))
-    console.log(this.props.player1.length)
+    console.log(this.props.deck);
   }
 
   componentDidMount() {
@@ -40,6 +40,9 @@ class App extends Component {
           </div>
           <div className='player4'>
             <Hand hand={player4}/>
+          </div>
+          <div className="discard">
+
           </div>
       </div>
     );
